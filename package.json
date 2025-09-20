@@ -1,0 +1,23 @@
+{
+  
+  "name": "mini-ethereum-wallet",
+  "version": "1.0.0",
+  "description": "Mini Ethereum Wallet for Holesky testnet",
+  "scripts": {
+    "start": "node server.js",
+    "minify:js": "terser auth.js -o auth.min.js && terser wallet.js -o wallet.min.js",
+    "minify:css": "cssnano style.css style.min.css",
+    "build": "npm run minify:js && npm run minify:css"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "nodemailer": "^6.9.7",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "terser": "^5.24.0",
+    "cssnano": "^6.0.1",
+    "postcss-cli": "^10.1.0"
+  }
+}
