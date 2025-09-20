@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Ethereum Wallet - Signup</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">🦊 MiniWallet</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="signup.html">Signup</a>
+      <a href="create.html">Create</a>
+      <a href="login.html">Login</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  <div class="main-container">
+    <div class="glass-card auth-card">
+      <h1>Create a New Wallet</h1>
+      <p>Generate a new Ethereum wallet for the Holesky testnet.</p>
+      <div class="form-group">
+        <input type="email" id="emailInput" placeholder="Enter your email for OTP verification" aria-describedby="email-error-message">
+        <div id="email-error-message" class="validation-error" role="alert"></div>
+      </div>
+      <button id="sendOtpBtn" aria-label="Send OTP to email">Send OTP</button>
+      <div id="otp-section">
+        <div class="form-group">
+          <input type="text" id="otpInput" placeholder="Enter OTP" aria-describedby="otp-error-message">
+          <div id="otp-error-message" class="validation-error" role="alert"></div>
+        </div>
+        <button id="verifyOtpBtn" aria-label="Verify OTP">Verify OTP</button>
+      </div>
+      <div id="new-wallet-details">
+        <hr>
+        <p><strong>Address:</strong> <span id="address">-</span> <button id="copyAddressBtn" aria-label="Copy wallet address">📋 Copy</button></p>
+        <p><strong>Private Key:</strong> <span id="privateKey">-</span> <button id="copyKeyBtn" aria-label="Copy private key">📋 Copy</button></p>
+        <div class="acknowledgement-box">
+          <input type="checkbox" id="keySavedCheckbox" aria-label="I have saved my private key">
+          <label for="keySavedCheckbox">I have saved my private key securely. I understand it cannot be recovered if lost.</label>
+        </div>
+        <button id="proceedToWalletBtn" disabled aria-label="Proceed to wallet dashboard">Proceed to Wallet</button>
+      </div>
+      <p id="signupStatus"></p>
+      <hr>
+      <p class="auth-switch">Already have a wallet? <a href="login.html">Login here</a>.</p>
+    </div>
+  </div>
+  <div id="toast-container"></div>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>    
