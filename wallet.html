@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Ethereum Wallet - Wallet</title>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">🦊 MiniWallet</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="signup.html">Signup</a>
+      <a href="login.html">Login</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  <div class="main-container">
+    <h1>🦊 Your Wallet</h1>
+    <div class="glass-card">
+      <p>This is your wallet dashboard. View your balance, send ETH, and see your transaction history.</p>
+      <p><strong>Address:</strong> <span id="address">-</span>
+        <button id="copyAddressBtn" aria-label="Copy wallet address">📋 Copy</button>
+      </p>
+      <p><strong>Private Key:</strong> <span id="privateKey">••••••••••••••••••••••••••••••••••••••••••••••••••••••••</span>
+        <button id="revealKeyBtn" class="secondary" aria-label="Reveal private key">Show</button>
+      </p>
+      <p><strong>Balance:</strong> <span id="balance">0 ETH</span></p>
+      <div id="faucet-info" class="faucet-info">
+        <p>Your balance is zero. Get some free test ETH to start sending transactions (Holesky).</p>
+        <a href="https://cloud.google.com/application/web3/faucet/ethereum/holesky" target="_blank" rel="noopener noreferrer">
+          <button class="secondary">Go to Holesky Faucet</button>
+        </a>
+      </div>
+      <button id="logoutBtn" class="secondary" aria-label="Logout from wallet">Logout</button>
+    </div>
+    <div class="glass-card">
+      <h3>Send ETH</h3>
+      <div class="form-group">
+        <div class="input-with-button">
+          <input type="text" id="to" placeholder="Recipient address" aria-describedby="to-error-message">
+          <button id="openAddressBookBtn" class="icon-button" title="Open Address Book" aria-label="Open address book">📖</button>
+        </div>
+        <div id="to-error-message" class="validation-error" role="alert"></div>
+      </div>
+      <div class="form-group">
+        <input type="text" id="amount" placeholder="Amount in ETH" aria-describedby="amount-error-message">
+        <div id="amount-error-message" class="validation-error" role="alert"></div>
+      </div>
+      <p class="gas-estimate">Estimated Fee: <span id="gasFee">-</span> ETH</p>
+      <button id="sendEthBtn" aria-label="Send ETH transaction">🚀 Send</button>
+      <p id="txStatus"></p>
+    </div>
+    <div id="historyCard" class="glass-card">
+      <h3>Transaction History</h3>
+      <div id="txList"></div>
+    </div>
+  </div>
+  <div id="toast-container"></div>
+  <div id="addressBookModal" class="modal-overlay">
+    <div class="modal-content">
+      <span id="closeAddressBookModalBtn" class="close-button" aria-label="Close address book">&times;</span>
+      <h3>Address Book</h3>
+      <div id="contactList"></div>
+      <hr>
+      <h4>Add New Contact</h4>
+      <div class="form-group">
+        <input type="text" id="contactNameInput" placeholder="Contact Name" aria-describedby="contact-name-error">
+        <div id="contact-name-error" class="validation-error" role="alert"></div>
+      </div>
+      <div class="form-group">
+        <input type="text" id="contactAddressInput" placeholder="Contact Address (0x...)" aria-describedby="contact-address-error">
+        <div id="contact-address-error" class="validation-error" role="alert"></div>
+      </div>
+      <button id="addContactBtn" aria-label="Add contact to address book">Add Contact</button>
+    </div>
+  </div>
+  <script type="module" src="wallet.js"></script>
+</body>
+</html>
